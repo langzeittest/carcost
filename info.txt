@@ -1,0 +1,15 @@
+title: CarCost Module
+desc: Adds mileage link from <a href="http://carcost.langzeittest.de/">CarCost</a> (Car Operating Costs and Mileage Statistics) to user profile.
+author: Oliver Riesen <oliver@riesen.org>
+url: http://www.phorum.org/phorum5/read.php?62,130538
+category: user_features
+required_version: 5.2.0
+version: 1.0.1
+
+priority: run hook tpl_cc_usersettings before google_maps
+priority: run hook tpl_cc_usersettings before spritmonitor
+
+hook: common|mod_carcost_common
+hook: lang|
+hook: sanity_checks|mod_carcost_sanity_checks
+hook: tpl_cc_usersettings|mod_carcost_tpl_cc_usersettings

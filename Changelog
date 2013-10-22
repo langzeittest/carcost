@@ -1,0 +1,7 @@
+Changelog:
+---------
+2008/05/25 version 1.0.0 by Oliver Riesen <oliver@riesen.org>
+- Initial release for Phorum 5.2.
+
+2008/08/26 version 1.0.1 by Oliver Riesen <oliver@riesen.org>
+- Bug fix undefined index in template read.tpl.
