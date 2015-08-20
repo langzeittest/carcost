@@ -14,25 +14,33 @@ include_once('./include/api/custom_profile_fields.php');
 // Store custom profile field
 
 // Get the current custom profile field if exists.
-$field = phorum_api_custom_profile_field_byname('mod_carcost');
+$existing = phorum_api_custom_profile_field_byname('mod_carcost');
 
-// If the field does not exist. Add it.
-if ($field_exists===NULL) {
-    phorum_api_custom_profile_field_configure
-        ( array
-              ( 'id'            => NULL,
-                'name'          => 'mod_carcost',
-                'length'        => 8,
-                'html_disabled' => 1,
-                'show_in_admin' => 1 ) );
+// We have, but it is a deleted field.
+// In this case restore the field and its data.
+if (!empty($existing['deleted'])) {
+    phorum_api_custom_profile_field_restore($existing['id']);
+    $id = $existing['id'];
+}
+// Existing field.
+elseif (!empty($existing)) {
+    $id = $existing['id'];
+}
+// New field.
+else {
+    $id = NULL;
 }
 
-$PHORUM['mod_carcost_installed'] = 1;
+// Configure the field.
+phorum_api_custom_profile_field_configure
+    ( array
+          ( 'id'            => $id,
+            'name'          => 'mod_carcost',
+            'length'        => 8,
+            'html_disabled' => 1,
+            'show_in_admin' => 1 ) );
 
-if ( !phorum_db_update_settings
-         ( array
-               ( 'mod_carcost_installed'=>$PHORUM['mod_carcost_installed'] ) ) ) {
-    $error = 'Database error while updating settings.';
-}
+// Keep track of the module's install state.
+phorum_db_update_settings(array('mod_carcost_installed' => 1));
 
 ?>
