@@ -1,11 +1,11 @@
 Module: CarCost
-Version: 1.0.1
+Version: 1.0.2
 Author: Oliver Riesen <oliver@riesen.org>
 
 Adds link to CarCost (Car Operating Costs and Mileage Statistics) to user
 profile.
 
-Tested on version 5.2.8.
+Tested on version 5.2.20.
 
 
 License:
@@ -89,10 +89,10 @@ details.
         {IF MESSAGES->URL->PROFILE}<a href="{MESSAGES->URL->PROFILE}">{/IF}{MESSAGES->author}{IF MESSAGES->URL->PROFILE}</a>{/IF}
         {IF MESSAGES->URL->PM}<small>[ <a href="{MESSAGES->URL->PM}">{LANG->PrivateReply}</a> ]</small>{/IF}
     </div>
-    _____________________________________________________________
-   |                                                             |
+    ______________________________________________________________
+   |                                                              |
     {IF MESSAGES->user->mod_carcost}{INCLUDE "carcost::read"}{/IF}
-   |_____________________________________________________________|
+   |______________________________________________________________|
 
     <small>
     <strong><a href="{MESSAGES->URL->READ}">{MESSAGES->subject}</a> {IF MESSAGES->new}<span class="new-flag">{MESSAGES->new}</span>{/IF}</strong><br />
@@ -114,10 +114,10 @@ details.
         {IF MESSAGES->URL->PROFILE}<a href="{MESSAGES->URL->PROFILE}">{/IF}{MESSAGES->author}{IF MESSAGES->URL->PROFILE}</a>{/IF}
         {IF MESSAGES->URL->PM}<small>[ <a href="{MESSAGES->URL->PM}">{LANG->PrivateReply}</a> ]</small>{/IF}
     </div>
-    _____________________________________________________________
-   |                                                             |
+    _____________________________________________________________________
+   |                                                                     |
     {IF MESSAGES->user->mod_carcost}{INCLUDE "carcost::read_hybrid"}{/IF}
-   |_____________________________________________________________|
+   |_____________________________________________________________________|
 
     <small>
     <strong><a href="{MESSAGES->URL->READ}">{MESSAGES->subject}</a> {IF MESSAGES->new}<span class="new-flag">{MESSAGES->new}</span>{/IF}</strong><br />
@@ -139,10 +139,10 @@ details.
         {IF MESSAGE->URL->PROFILE}<a href="{MESSAGE->URL->PROFILE}">{/IF}{MESSAGE->author}{IF MESSAGE->URL->PROFILE}</a>{/IF}
         {IF MESSAGE->URL->PM}<small>[ <a href="{MESSAGE->URL->PM}">{LANG->PrivateReply}</a> ]{/IF}
     </div>
-    _____________________________________________________________
-   |                                                             |
+    _____________________________________________________________________
+   |                                                                     |
     {IF MESSAGE->user->mod_carcost}{INCLUDE "carcost::read_threads"}{/IF}
-   |_____________________________________________________________|
+   |_____________________________________________________________________|
     <div class="message-date">{MESSAGE->datestamp}</div>
 </td>
 ...
@@ -160,10 +160,10 @@ details.
         <dt>{LANG->DateActive}:&nbsp;</dt>
         <dd>{PROFILE->date_last_active}</dd>
     {/IF}
-    _____________________________________________________________
-   |                                                             |
+    __________________________________________________________
+   |                                                          |
     {IF PROFILE->mod_carcost}{INCLUDE "carcost::profile"}{/IF}
-   |_____________________________________________________________|
+   |__________________________________________________________|
 </dl>
 ...
 ...
@@ -190,3 +190,7 @@ to
 will automatically recognize that you have created a specific template set to
 use for your site's active template.
 
+
+GitHub:
+
+Contribute on GitHub: https://github.com/langzeittest/phorum-module-carcost
